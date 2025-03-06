@@ -1,5 +1,5 @@
-#ifndef _IIC_WRAPPER_H_
-#define _IIC_WRAPPER_H_
+#ifndef _I2C_WRAPPER_H_
+#define _I2C_WRAPPER_H_
 
 typedef struct sf_i2c_bus_config{
     unsigned int     sda_io_num;
