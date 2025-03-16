@@ -1,11 +1,11 @@
-#include "i2c_drv.h"
+#include "i2c_wrapper.h"
 #include "esp_log.h"
 #include "driver/i2c_master.h"
 
 static i2c_master_bus_handle_t bus_handle;
 static i2c_master_dev_handle_t dev_handle;
 
-void smart_os_iic_init(sf_i2c_config_t* config)
+void sf_iic_init(sf_i2c_config_t* config)
 {
     // 1. 配置I2C总线参数
     i2c_master_bus_config_t i2c_config = {
@@ -27,12 +27,12 @@ void smart_os_iic_init(sf_i2c_config_t* config)
     ESP_ERROR_CHECK(i2c_master_bus_add_device(bus_handle, &dev_config, &dev_handle));
 }
 
-void smart_os_iic_write(unsigned int *write_buf, unsigned int buf_size)
+void sf_iic_write(unsigned int *write_buf, unsigned int buf_size)
 {
     ESP_ERROR_CHECK(i2c_master_transmit(dev_handle, write_buf, sizeof(write_buf), -1));
 }
 
-void smart_os_iic_read(unsigned int *read_buf, unsigned int buf_size)
+void sf_iic_read(unsigned int *read_buf, unsigned int buf_size)
 {
     ESP_ERROR_CHECK(i2c_master_receive(dev_handle, read_buf, sizeof(read_buf), -1));
 }

@@ -1,14 +1,11 @@
-file(GLOB esp32_drv_srcs "./esp32_drv*.cc")
-file(GLOB esp32_wrapper_srcs "./esp32_wrapper*.cc")
+file(GLOB sf_wrapper_srcs "./sf_wrapper*.c")
 
 set(src_files
-    ${esp32_drv_srcs}
-    ${esp32_wrapper_srcs}
+    ${sf_wrapper_srcs}
 )
 
-set(include_dirs    
-    esp32_drv
-    esp32_wrapper
+set(include_dirs
+    sf_wrapper
 )
 
 set(requires
